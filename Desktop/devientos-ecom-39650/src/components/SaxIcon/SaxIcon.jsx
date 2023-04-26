@@ -1,3 +1,4 @@
+import React from "react";
 import { GiSaxophone } from "react-icons/gi";
 
 export const SaxIcon = () => {

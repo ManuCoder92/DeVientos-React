@@ -1,4 +1,4 @@
-import * as React from "react";
+/*import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -13,13 +13,14 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { SaxIcon } from "../SaxIcon/SaxIcon";
-import { Cart } from "../Cart/Cart";
 import { ItemList } from "../ItemList/ItemList";
+import { saxos } from "../Saxos/saxos";
+import Cart from "../Cart/Cart";
 
 const pages = ["Saxos", "Trompetas", "Clarinetes"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-export const Appbar = () => {
+export const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -90,13 +91,7 @@ export const Appbar = () => {
                 sx={{
                   display: { xs: "block", md: "none" },
                 }}
-              >
-                {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
+              ></Menu>
             </Box>
             <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
             <Typography
@@ -161,7 +156,32 @@ export const Appbar = () => {
           </Toolbar>
         </Container>
       </AppBar>
-      <ItemList />
     </>
+  );
+};
+*/
+
+import CartWidget from "../CartWidget/CartWidget";
+import styles from "./Navbar.module.css";
+import { Outlet, Link } from "react-router-dom";
+
+export const Navbar = () => {
+  return (
+    <div>
+      <div className={styles.containerNavbar}>
+        <Link to="/">DE VIENTOS</Link>
+
+        <div className={styles.categories}>
+          <Link to="/">Todas</Link>
+          <Link to="/category/saxos">Saxos</Link>
+          <Link to="/category/deportivas">Clarinetes</Link>
+          <Link to="/category/deportivas">Trompetas</Link>
+        </div>
+
+        <CartWidget />
+      </div>
+
+      <Outlet />
+    </div>
   );
 };

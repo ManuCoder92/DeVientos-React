@@ -1,12 +1,20 @@
-import React from "react";
+import ItemCard from "./ItemCard";
 
-export const ItemList = () => {
-  const saludo =
-    "Bienvenidos a la tienda de instrumento de vientos N°1 del mercado";
-
+export const ItemList = ({ items }) => {
   return (
-    <div>
-      <h1>{saludo}</h1>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-evenly",
+        flexWrap: "wrap",
+        minHeight: "90vh",
+        padding: "40px",
+        gap: "20px",
+      }}
+    >
+      {items.map((item) => {
+        return <ItemCard item={item} key={item.id} />;
+      })}
     </div>
   );
 };
